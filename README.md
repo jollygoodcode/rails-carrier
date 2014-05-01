@@ -1,5 +1,3 @@
-# Ruby on Rails Development Environment
-
 ## Introduction
 
 Let's set up a Ruby on Rails development environment on your machine!
