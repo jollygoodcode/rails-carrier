@@ -17,7 +17,7 @@ Once we have _Linux_ setup on your machine, we will then proceed to install the 
 
 Follow the steps below closely and please feel free to report any problems to:
 
-- [GitHub Issues](https://github.com/jollygoodcode/workshop_app/issues)
+- [GitHub Issues](https://github.com/jollygoodcode/workshop_setup/issues)
 - [Email](mailto: winston@jollygoodcode.com)
 
 This should take about an hour or less. :)
