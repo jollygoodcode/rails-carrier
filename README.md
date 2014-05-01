@@ -24,6 +24,26 @@ This should take about an hour or less. :)
 
 ---
 
+## Install Git
+
+### Are you on Windows?
+
+Download [Git for Windows](http://msysgit.github.io/).
+
+Run the installer, and choose the following options where appropriate:
+
+#### _Adjusting your PATH environment_
+
+Choose option `Use Git and optional Unix tools from the Windows Command Prompt`
+
+#### _Configuring the line ending conversions_
+
+Choose option `Checkout as-is, commit Unix-style line endings`
+
+### Are you on Mac?
+
+Move on. Nothing to see here. You already have Git in Mac.
+
 ## Install [VirtualBox](https://www.virtualbox.org/)
 
 Download [for your platform](https://www.virtualbox.org/wiki/Downloads ),
@@ -74,13 +94,13 @@ Update the VM.
 $> sudo apt-get update
 ```
 
-Install Git.
+Install Git. Respond with 'Y' when prompted.
 
 ```
 $> sudo apt-get install git
 ```
 
-Install RVM.
+Install RVM. Respond with 'Y' when prompted.
 
 ```
 $> sudo apt-get install curl
@@ -100,12 +120,14 @@ $> rvm requirements
 
 Install Ruby 2.1 and update Bundler.
 
+Follow the instructions from `gem cleanup` to remove rubygems-bundler 1.4.2 and bundler 1.5.3.
+
 ```
 $> rvm install 2.1
 ...
 $> echo 'gem: --no-ri --no-rdoc' > ~/.gemrc
-$> gem update bundler
-$> gem cleanup
+$> rvm @gloabl do gem update bundler
+$> rvm @gloabl do gem cleanup
 ```
 
 Install Rails.
@@ -125,20 +147,22 @@ $> export LC_ALL="en_US.UTF-8"
 $> locale-gen en_US.UTF-8
 ```
 
-- Install PostgreSQL
+- Install PostgreSQL. Respond with 'Y' when prompted.
 
 ```
 $> sudo apt-get install postgresql libpq-dev
 ```
 
-- Create `vagrant` role, and type `y` when prompted 'Shall the new role be a superuser?'
+- Create `vagrant` role, and type `Y` when asked 'Shall the new role be a superuser?'
 
 ```
 $> sudo su postgres
 $> createuser vagrant
+...
+$> exit
 ```
 
-Install NodeJS (for Rails Assets).
+Install NodeJS (for Rails Assets). Respond with 'Y' when prompted.
 
 ```
 $> sudo apt-get install nodejs
