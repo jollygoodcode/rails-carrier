@@ -126,8 +126,8 @@ Follow the instructions from `gem cleanup` to remove rubygems-bundler 1.4.2 and 
 $> rvm install 2.1
 ...
 $> echo 'gem: --no-ri --no-rdoc' > ~/.gemrc
-$> rvm @gloabl do gem update bundler
-$> rvm @gloabl do gem cleanup
+$> rvm @global do gem update bundler
+$> rvm @global do gem cleanup
 ```
 
 Install Rails.
