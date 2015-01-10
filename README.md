@@ -34,11 +34,11 @@ Run the installer, and choose the following options where appropriate:
 
 #### _Adjusting your PATH environment_
 
-Choose option `Use Git and optional Unix tools from the Windows Command Prompt`
+Choose option `Use Git and optional Unix tools from the Windows Command Prompt`.
 
 #### _Configuring the line ending conversions_
 
-Choose option `Checkout as-is, commit Unix-style line endings`
+Choose option `Checkout as-is, commit Unix-style line endings`.
 
 ### Are you on Mac?
 
@@ -46,12 +46,12 @@ Move on. Nothing to see here. You already have Git in Mac.
 
 ## Install [VirtualBox](https://www.virtualbox.org/)
 
-Download [for your platform](https://www.virtualbox.org/wiki/Downloads ),
+[Download for your platform](https://www.virtualbox.org/wiki/Downloads),
 then run the installer and follow the instructions.
 
 ## Install [Vagrant](http://www.vagrantup.com/)
 
-Download [for your platform](http://www.vagrantup.com/downloads.html),
+[Download for your platform](http://www.vagrantup.com/downloads.html),
 then run the Installer and follow the instructions.
 
 ## Setup a Virtual Machine for Ubuntu 12.04
@@ -68,7 +68,7 @@ In the directory, type the following to setup a `Vagrantfile` for Ubuntu 12.04.
 $> vagrant init hashicorp/precise32
 ```
 
-Open up the `Vagrantfile` in a text editor and edit line 23 (delete `#` and update ports).
+Open up the `Vagrantfile` in a text editor and edit line 25 (delete `#` and update ports).
 
 ```
 config.vm.network "forwarded_port", guest: 3000, host: 3000
@@ -88,24 +88,26 @@ SSH into the VM.
 $> vagrant ssh
 ```
 
-Update the VM.
+Update the Virtual Machine.
 
 ```
 $> sudo apt-get update
 ```
 
-Install Git. Respond with 'Y' when prompted.
+Install Git.
 
 ```
-$> sudo apt-get install git
+$> sudo apt-get install -y git
 ```
 
-Install RVM. Respond with 'Y' when prompted.
+Install RVM.
 
 ```
-$> sudo apt-get install curl
+$> sudo apt-get install -y curl
 ...
-$> \curl -sSL https://get.rvm.io | bash
+$> gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3
+...
+$> \curl -sSL https://get.rvm.io | bash -s stable
 ...
 $> source /home/vagrant/.rvm/scripts/rvm
 ...
@@ -118,14 +120,14 @@ Install other dependencies with RVM.
 $> rvm requirements
 ```
 
-Install Ruby 2.1 and update Bundler.
+Install Ruby 2.2 and update Bundler.
 
 Follow the instructions from `gem cleanup` to remove rubygems-bundler 1.4.2 and bundler 1.5.3.
 
 ```
-$> rvm install 2.1
+$> rvm install 2.2
 ...
-$> echo 'gem: --no-ri --no-rdoc' > ~/.gemrc
+$> echo 'gem: --no-document' > ~/.gemrc
 $> rvm @global do gem update bundler
 $> rvm @global do gem cleanup
 ```
@@ -147,10 +149,10 @@ $> export LC_ALL="en_US.UTF-8"
 $> locale-gen en_US.UTF-8
 ```
 
-- Install PostgreSQL. Respond with 'Y' when prompted.
+- Install PostgreSQL.
 
 ```
-$> sudo apt-get install postgresql libpq-dev
+$> sudo apt-get install -y postgresql libpq-dev
 ```
 
 - Create `vagrant` role, and type `Y` when asked 'Shall the new role be a superuser?'
@@ -162,10 +164,10 @@ $> createuser vagrant
 $> exit
 ```
 
-Install NodeJS (for Rails Assets). Respond with 'Y' when prompted.
+Install NodeJS (for Rails Assets).
 
 ```
-$> sudo apt-get install nodejs
+$> sudo apt-get install -y nodejs
 ```
 
 
@@ -186,7 +188,7 @@ Clone an existing GitHub repository.
 Set up the repository.
 
 ```
-/vagrant $> echo '2.1'          > workshop_app/.ruby-version
+/vagrant $> echo 'ruby-2.2.0'   > workshop_app/.ruby-version
 /vagrant $> echo 'workshop_app' > workshop_app/.ruby-gemset
 /vagrant $> cd workshop_app
 ```
@@ -194,22 +196,22 @@ Set up the repository.
 Setup Rails app.
 
 ```
-/vagrant/workshop_app $> bundle
-/vagrant/workshop_app $> rake db:create db:migrate db:seed
+/vagrant/workshop_app $> bin/setup
+/vagrant/workshop_app $> bin/rake db:migrate db:seed
 ```
 
 Verify that Rails console is working.
 
 ```
 /vagrant/workshop_app $> rails console
-Loading development environment (Rails 4.1.0)
-2.1.1 :001 > Workshop.count
-   (1.9ms)  SELECT COUNT(*) FROM "workshops"
+Loading development environment (Rails 4.2.0)
+2.2.0 :001 > Workshop.count
+   (0.2ms)  SELECT COUNT(*) FROM "workshops"
  => 3
-2.1.1 :002 > Workshop.pluck(:title)
-   (0.9ms)  SELECT "workshops"."title" FROM "workshops"
+2.2.0 :002 > Workshop.pluck(:title)
+   (0.3ms)  SELECT "workshops"."title" FROM "workshops"
  => ["Beginner Ruby on Rails", "Intermediate Ruby on Rails", "Advance Ruby on Rails"]
-2.1.1 :003 > exit
+2.2.0 :003 > exit
 ```
 
 Verify that Rails server is working.
@@ -217,12 +219,13 @@ Verify that Rails server is working.
 ```
 /vagrant/workshop_app $> rails server
 => Booting WEBrick
-=> Rails 4.1.0 application starting in development on http://0.0.0.0:3000
+=> Rails 4.2.0 application starting in development on http://127.0.0.1:3000
 => Run `rails server -h` for more startup options
-=> Notice: server is listening on all interfaces (0.0.0.0). Consider using 127.0.0.1 (--binding option)
 => Ctrl-C to shutdown server
 ```
 
-Open up your browser and go to `http://localhost:3000`. You should see the _Welcome_ page.
+Open up your browser and go to `http://localhost:3000`. You should see the _Welcome_ page:
+
+![Rails 4.2 welcome page](/images/welcome.png)
 
 That's it! Done! All's good!
