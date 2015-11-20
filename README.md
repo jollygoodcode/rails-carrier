@@ -124,7 +124,7 @@ You're almost there! [Verify Everything Works](#verify-everything-works).
 
 First, you'll need to _install_ Linux on your machine using VirtualBox and Vagrant.
 
-Once we have _Linux_ setup on your machine, we will then proceed to set up an development virtual machine for Rails development.
+Once we have _Linux_ setup on your machine, we will then proceed to set up a Virtual Machine for Rails development.
 
 ### Setup a Virtual Machine for Ubuntu 14.04
 
