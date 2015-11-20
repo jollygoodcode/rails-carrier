@@ -9,8 +9,8 @@ Let's set up a Ruby on Rails development environment on your machine (OS X or Wi
 
 Things to note before we begin:
 
-- For viewing/editing files, please download and use [Sublime Text Editor](http://www.sublimetext.com/2).
-- Please feel free to report any problems to [GitHub Issues](https://github.com/jollygoodcode/rails-carrier/issues) or [email us](mailto: winston@jollygoodcode.com).
+- For viewing/editing files, please download and use [Atom](https://atom.io/) or [Sublime Text Editor](http://www.sublimetext.com/2).
+- Please feel free to report any problems to [GitHub Issues](https://github.com/jollygoodcode/rails-carrier/issues) or [email us](mailto: hello@jollygoodcode.com).
 
 ----
 
@@ -29,13 +29,26 @@ then run the Installer and follow the instructions.
 [Download for your platform](https://www.vagrantup.com/downloads.html),
 then run the Installer and follow the instructions.
 
-### Install Git if you are on Windows
+### Install Git
+
+#### Are you on Mac or Linux?
+
+Git already comes pre-installed in your machine.
+
+Verify by opening your Terminal and type:
+
+```
+$> git --version
+git 2.2.1
+```
+
+You're good to move on if that command works. Skip to "[What's Next?](#whats-next)"
 
 #### Are you on Windows?
 
-Download [Git for Windows](https://git-for-windows.github.io/).
+Download [Git for Windows](https://git-scm.com/download/win).
 
-Run the installer, and choose the following options where appropriate:
+Run the installer, and choose the following options where appropriate (use default options for the rest):
 
 ##### _Adjusting your PATH environment_
 
@@ -54,20 +67,27 @@ At this point, you have the following options:
 
 ----
 
-
 ## 1. Use a Pre-Built _Linux_ (Vagrant) Box
 
 > _This should take about 10 min or less._ [See sample log](1-sample.log).
 
-Open up your terminal and change into a directory which you'll be using for all of your coding needs, e.g. `~/workshop/` or `C:\workshop`
+Open up your Terminal.
+
+For Mac/Linus users, find the Terminal app.
+
+For Windows users, click on Windows Start and type "cmd" in the "Search programs and files" search field.
+Open `cmd.exe`. That's the Terminal equivalent in Windows.
+
+Create and change into into a directory which you'll be using for all of your coding needs, e.g. `~/workshop/` or `C:\workshop`
 
 ```
+$> mkdir workshop
 $> cd workshop
 ```
 
 Download our pre-built _Linux_ (Vagrant) box - Ubuntu 14.04, Ruby 2.2.3 and Rails 4.2.5.
 
-Are you sitting behind a proxy server? [Set your `HTTP_PROXY` env variable](#http_proxy).
+**[Troubleshooting] Are you sitting behind a proxy server? [Set your `HTTP_PROXY` env variable](#http_proxy).**
 
 ```
 $> vagrant box add https://s3-ap-southeast-1.amazonaws.com/jollygood-courses/vagrant-boxes/jollygood.box-trusty64 --name jollygoodcode/box-trusty64
@@ -79,7 +99,7 @@ Init a `Vagrantfile` from the downloaded Vagrant box.
 $> vagrant init jollygoodcode/box-trusty64
 ```
 
-Are you sitting behind a proxy server? [Set up `vagrant_proxy`](#vagrant-proxy).
+**[Troubleshooting] Are you sitting behind a proxy server? [Set up `vagrant_proxy`](#vagrant-proxy).**
 
 In the directory, type the following to bring up the Virtual Machine for Ubuntu 14.04.
 
@@ -108,15 +128,23 @@ Once we have _Linux_ setup on your machine, we will then proceed to set up an de
 
 ### Setup a Virtual Machine for Ubuntu 14.04
 
-Open up your terminal and change into a directory which you'll be using for all of your coding needs, e.g. `~/workshop/` or `C:\workshop`
+Open up your Terminal.
+
+For Mac/Linus users, find the Terminal app.
+
+For Windows users, click on Windows Start and type "cmd" in the "Search programs and files" search field.
+Open `cmd.exe`. That's the Terminal equivalent in Windows.
+
+Create and change into into a directory which you'll be using for all of your coding needs, e.g. `~/workshop/` or `C:\workshop`
 
 ```
+$> mkdir workshop
 $> cd workshop
 ```
 
 In the directory, type the following to setup a `Vagrantfile` for Ubuntu 14.04.
 
-**Are you sitting behind a proxy server? [Set your `HTTP_PROXY` env variable](#http_proxy).**
+**[Troubleshooting] Are you sitting behind a proxy server? [Set your `HTTP_PROXY` env variable](#http_proxy).**
 
 ```
 $> vagrant init ubuntu/trusty64
@@ -128,15 +156,19 @@ Open up the `Vagrantfile` in a text editor and edit line 25 (delete `#` and upda
 config.vm.network "forwarded_port", guest: 3000, host: 3000
 ```
 
-**Are you sitting behind a proxy server? [Set up `vagrant_proxy`](#vagrant-proxy)**
+**[Troubleshooting] Are you sitting behind a proxy server? [Set up `vagrant_proxy`](#vagrant-proxy)**
 
 In the directory, type the following to bring up the Virtual Machine for Ubuntu 14.04.
+
+Basically, it will use the config we already have in `sail.sh` to install the necessary on the VM.
+
+Take a look at [`sail.sh`](https://github.com/jollygoodcode/rails-carrier/blob/master/sail.sh) to see what we have included in the VM.
 
 ```
 $> vagrant up
 ```
 
-it will provision by `sail.sh`, wait till it finished (~ 10 mins), then SSH into the VM:
+Wait for `vagrant up` to be completed (~ 10 mins), then SSH into the VM:
 
 ```
 $> vagrant ssh
