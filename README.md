@@ -90,13 +90,13 @@ Download our pre-built _Linux_ (Vagrant) box - Ubuntu 14.04, Ruby 2.2.3 and Rail
 **[Troubleshooting] Are you sitting behind a proxy server? [Set your `HTTP_PROXY` env variable](#http_proxy).**
 
 ```
-$> vagrant box add https://s3-ap-southeast-1.amazonaws.com/jollygood-courses/vagrant-boxes/jollygood.box-trusty64 --name jollygoodcode/box-trusty64
+$> vagrant box add https://s3-ap-southeast-1.amazonaws.com/courses/boxes/trusty64 --name jgc/trusty64
 ```
 
 Init a `Vagrantfile` from the downloaded Vagrant box.
 
 ```
-$> vagrant init jollygoodcode/box-trusty64
+$> vagrant init jgc/trusty64
 ```
 
 **[Troubleshooting] Are you sitting behind a proxy server? [Set up `vagrant_proxy`](#vagrant-proxy).**
