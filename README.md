@@ -191,7 +191,7 @@ This instructs Vagrant to use `sail.sh` for provisioning the Linux box.
 
 Take a look at [`sail.sh`](https://github.com/jollygoodcode/rails-carrier/blob/master/sail.sh) to see what we have included in the VM.
 
-**[Troubleshooting] Are you sitting behind a proxy server? [Behind a Proxy Server](#behind_a_proxy_server).**
+**[Troubleshooting] Are you sitting behind a proxy server? [Behind a Proxy Server](#behind-a-proxy-server).**
 
 Type the following to bring up the Virtual Machine for Ubuntu 14.04.
 
@@ -205,9 +205,28 @@ Wait for `vagrant up` to be completed (~ 10 mins), then SSH into the VM:
 $> vagrant ssh
 ```
 
-**[Hint] Move `Vagrantfile` into `workshop` directory to do `vagrant up` from `workshop`.**
-
 You're almost there! [Verify Everything Works](#verify-everything-works).
+
+## Extra: Package a Box
+
+After you have built a VM from scratch in [2. Build a _Linux_ (Vagrant) Box from Scratch](#2-build-a-linux-vagrant-box-from-scratch),
+you can package the VM for sharing. [Read](https://docs.vagrantup.com/v2/cli/package.html).
+
+First find the VM:
+
+```
+$> VBoxManage list vms
+```
+
+Then package the VM:
+
+```
+vagrant package --base rails-carrier_default_123456789 --output trusty32
+```
+
+Upload the packaged box to S3 or somewhere on the cloud.
+
+To use it, follow [1. Use a Pre-Built _Linux_ (Vagrant) Box](#1-use-a-pre-built-linux-vagrant-box), and use your new link.
 
 ----
 
@@ -267,6 +286,7 @@ Open up your browser and go to `http://localhost:3000`. You should see the _Welc
 ![Rails 4.2 welcome page](/images/welcome.png)
 
 That's it! You're all done! Start writing some awesome apps now!
+
 
 ----
 
