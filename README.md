@@ -90,12 +90,24 @@ Download our pre-built _Linux_ (Vagrant) box - Ubuntu 14.04, Ruby 2.2.3 and Rail
 **[Troubleshooting] Are you sitting behind a proxy server? [Set your `HTTP_PROXY` env variable](#http_proxy).**
 
 ```
+# For 32-bit box. Suitable for most systems.
+$> vagrant box add https://s3-ap-southeast-1.amazonaws.com/jollygood-courses/trusty32 --name jgc/trusty32
+
+# OR
+
+# For 64-bit box. Pick this only if you are sure that you are using a 64-bit machine.
 $> vagrant box add https://s3-ap-southeast-1.amazonaws.com/jollygood-courses/trusty64 --name jgc/trusty64
 ```
 
 Init a `Vagrantfile` from the downloaded Vagrant box.
 
 ```
+# For 32-bit box.
+$> vagrant init jgc/trusty32
+
+# OR
+
+# For 64-bit box.
 $> vagrant init jgc/trusty64
 ```
 
@@ -130,7 +142,7 @@ Once we have _Linux_ setup on your machine, we will then proceed to set up a Vir
 
 Open up your Terminal.
 
-For Mac/Linus users, find the Terminal app.
+For Mac/Linux users, find the Terminal app.
 
 For Windows users, click on Windows Start and type "cmd" in the "Search programs and files" search field.
 Open `cmd.exe`. That's the Terminal equivalent in Windows.
@@ -142,27 +154,46 @@ $> mkdir workshop
 $> cd workshop
 ```
 
-In the directory, type the following to setup a `Vagrantfile` for Ubuntu 14.04.
-
-**[Troubleshooting] Are you sitting behind a proxy server? [Set your `HTTP_PROXY` env variable](#http_proxy).**
+Clone this repository.
 
 ```
-$> vagrant init jgc/trusty64
+$> git clone https://github.com/jollygoodcode/rails-carrier.git
 ```
 
-Open up the `Vagrantfile` in a text editor and edit line 25 (delete `#` and update ports).
+Copy the following files to the `workshop` directory:
 
 ```
-config.vm.network "forwarded_port", guest: 3000, host: 3000
+$> cp rails-carrier/Vagrantfile .
+$> cp rails-carrier/sail.sh .
 ```
 
-**[Troubleshooting] Are you sitting behind a proxy server? [Set up `vagrant_proxy`](#vagrant-proxy)**
+In the directory, verify `Vagrantfile` exists.
 
-In the directory, type the following to bring up the Virtual Machine for Ubuntu 14.04.
+The `Vagrantfile` should have the following important information:
 
-Basically, it will use the config we already have in `sail.sh` to install the necessary on the VM.
+```
+config.vm.box = "ubuntu/trusty32"
+```
+
+This is to install a Ubuntu Trusty 32-bit build. Change this accordingly.
+
+```
+config.vm.network :forwarded_port, guest: 3000, host: 3000
+```
+
+This is to allow network access in your Vagrant box.
+
+```
+config.vm.provision :shell, path: "sail.sh", keep_color: true
+```
+
+This instructs Vagrant to use `sail.sh` for provisioning the Linux box.
 
 Take a look at [`sail.sh`](https://github.com/jollygoodcode/rails-carrier/blob/master/sail.sh) to see what we have included in the VM.
+
+**[Troubleshooting] Are you sitting behind a proxy server? [Behind a Proxy Server](#behind_a_proxy_server).**
+
+Type the following to bring up the Virtual Machine for Ubuntu 14.04.
 
 ```
 $> vagrant up
@@ -173,6 +204,8 @@ Wait for `vagrant up` to be completed (~ 10 mins), then SSH into the VM:
 ```
 $> vagrant ssh
 ```
+
+**[Hint] Move `Vagrantfile` into `workshop` directory to do `vagrant up` from `workshop`.**
 
 You're almost there! [Verify Everything Works](#verify-everything-works).
 
@@ -235,8 +268,27 @@ Open up your browser and go to `http://localhost:3000`. You should see the _Welc
 
 That's it! You're all done! Start writing some awesome apps now!
 
+----
+
 
 ## Troubleshooting
+
+### SSL Certificate
+
+Did you encounter a SSL problem when running the `vagrant box add ...` command?
+
+Try adding `--insecure` to the end of the command:
+
+```
+# For 32-bit box. Suitable for most systems.
+$> vagrant box add https://s3-ap-southeast-1.amazonaws.com/jollygood-courses/trusty32 --name jgc/trusty32 --insecure
+
+# OR
+
+# For 64-bit box. Pick this only if you are sure that you are using a 64-bit machine.
+$> vagrant box add https://s3-ap-southeast-1.amazonaws.com/jollygood-courses/trusty64 --name jgc/trusty64 --insecure
+```
+
 
 ### Behind a Proxy Server
 
