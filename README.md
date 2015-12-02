@@ -207,21 +207,15 @@ $> vagrant ssh
 
 You're almost there! [Verify Everything Works](#verify-everything-works).
 
-## Extra: Package a Box
+## Extra: Package a Box (For Coaches Only)
 
 After you have built a VM from scratch in [2. Build a _Linux_ (Vagrant) Box from Scratch](#2-build-a-linux-vagrant-box-from-scratch),
 you can package the VM for sharing. [Read](https://docs.vagrantup.com/v2/cli/package.html).
 
-First find the VM:
+Package the VM:
 
 ```
-$> VBoxManage list vms
-```
-
-Then package the VM:
-
-```
-vagrant package --base rails-carrier_default_123456789 --output trusty32
+vagrant package --output trusty32 --include sail.sh --vagrantfile Vagrantfile
 ```
 
 Upload the packaged box to S3 or somewhere on the cloud.
