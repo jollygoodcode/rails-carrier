@@ -275,7 +275,7 @@ Verify that Rails server is working.
 => Ctrl-C to shutdown server
 ```
 
-Open up your browser and go to `http://localhost:3000`. You should see the _Welcome_ page:
+Open up your browser and go to <http://localhost:3000>. You should see the _Welcome_ page:
 
 ![Rails 4.2 welcome page](/images/welcome.png)
 
