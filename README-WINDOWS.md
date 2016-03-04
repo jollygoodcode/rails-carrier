@@ -67,7 +67,7 @@ $> mkdir workshop
 $> cd workshop
 ```
 
-Download our pre-built _Linux_ (Vagrant) box - Ubuntu 14.04, Ruby 2.2.3 and Rails 4.2.5.
+Download our pre-built _Linux_ (Vagrant) box - Ubuntu 14.04, Ruby 2.3.0 and Rails 4.2.5.1.
 
 [First check you're using 32-bit / 64-bit machine](https://support.microsoft.com/zh-tw/kb/827218).
 
@@ -137,14 +137,14 @@ Verify that Rails console is working.
 
 ```
 /vagrant/workshop_app $> rails console
-Loading development environment (Rails 4.2.5)
-2.2.3 :001 > Workshop.count
+Loading development environment (Rails 4.2.5.1)
+2.3.0 :001 > Workshop.count
    (0.2ms)  SELECT COUNT(*) FROM "workshops"
  => 3
-2.2.3 :002 > Workshop.pluck(:title)
+2.3.0 :002 > Workshop.pluck(:title)
    (0.3ms)  SELECT "workshops"."title" FROM "workshops"
  => ["Beginner Ruby on Rails", "Intermediate Ruby on Rails", "Advance Ruby on Rails"]
-2.2.3 :003 > exit
+2.3.0 :003 > exit
 ```
 
 Verify that Rails server is working.
@@ -152,7 +152,7 @@ Verify that Rails server is working.
 ```
 /vagrant/workshop_app $> rails server --bind 0.0.0.0
 => Booting WEBrick
-=> Rails 4.2.5 application starting in development on http://0.0.0.0:3000
+=> Rails 4.2.5.1 application starting in development on http://0.0.0.0:3000
 => Run `rails server -h` for more startup options
 => Ctrl-C to shutdown server
 ```

@@ -49,7 +49,7 @@ $> mkdir workshop
 $> cd workshop
 ```
 
-Download our pre-built _Linux_ (Vagrant) box - Ubuntu 14.04, Ruby 2.2.3 and Rails 4.2.5.
+Download our pre-built _Linux_ (Vagrant) box - Ubuntu 14.04, Ruby 2.3.0 and Rails 4.2.5.
 
 [First check you're using 32-bit / 64-bit machine](http://superuser.com/a/87644/119357).
 
@@ -120,13 +120,13 @@ Verify that Rails console is working.
 ```
 /vagrant/workshop_app $> rails console
 Loading development environment (Rails 4.2.5)
-2.2.3 :001 > Workshop.count
+2.3.0 :001 > Workshop.count
    (0.2ms)  SELECT COUNT(*) FROM "workshops"
  => 3
-2.2.3 :002 > Workshop.pluck(:title)
+2.3.0 :002 > Workshop.pluck(:title)
    (0.3ms)  SELECT "workshops"."title" FROM "workshops"
  => ["Beginner Ruby on Rails", "Intermediate Ruby on Rails", "Advance Ruby on Rails"]
-2.2.3 :003 > exit
+2.3.0 :003 > exit
 ```
 
 Verify that Rails server is working.
