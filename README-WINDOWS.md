@@ -5,27 +5,37 @@ Let's get started!
 Ruby on Rails runs better in a *nix environment, so we'll use __VirtualBox__ and __Vagrant__
 to install __Linux__ on your machine.
 
-### Install [VirtualBox](https://www.virtualbox.org)
+## Table of Contents
+
+- [Install VirtualBox](#install-virtualbox)
+- [Install Vagrant](#install-vagrant)
+- [Install Git](#install-git)
+  * [Adjusting your PATH environment](#adjusting-your-path-environment)
+  * [Configuring the line ending conversions](#configuring-the-line-ending-conversions)
+- [Use a Pre-Built Linux (Vagrant) Box](#use-a-pre-built-linux-vagrant-box)
+- [Verify Everything Works!](#verify-everything-works)
+
+## Install [VirtualBox](https://www.virtualbox.org)
 
 [Download for Windows](https://www.virtualbox.org/wiki/Downloads),
 then run the Installer and follow the instructions.
 
-### Install [Vagrant](https://www.vagrantup.com)
+## Install [Vagrant](https://www.vagrantup.com)
 
 [Download for Windows](https://www.vagrantup.com/downloads.html),
 then run the Installer and follow the instructions.
 
-### Install Git
+## Install Git
 
 Download [Git for Windows](https://git-scm.com/download/win).
 
 Run the installer, and choose the following options where appropriate (use default options for the rest):
 
-##### _Adjusting your PATH environment_
+### _Adjusting your PATH environment_
 
 Choose option `Use Git and optional Unix tools from the Windows Command Prompt`.
 
-##### _Configuring the line ending conversions_
+### _Configuring the line ending conversions_
 
 Choose option `Checkout as-is, commit Unix-style line endings`.
 

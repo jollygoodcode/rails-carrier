@@ -5,17 +5,25 @@ Let's get started!
 Ruby on Rails runs better in a *nix environment, so we'll use __VirtualBox__ and __Vagrant__
 to install __Linux__ on your machine.
 
-### Install [VirtualBox](https://www.virtualbox.org)
+## Table of Contents
+
+- [Install VirtualBox](#install-virtualbox)
+- [Install Vagrant](#install-vagrant)
+- [Install Git](#install-git)
+- [Use a Pre-Built Linux (Vagrant) Box](#use-a-pre-built-linux-vagrant-box)
+- [Verify Everything Works!](#verify-everything-works)
+
+## Install [VirtualBox](https://www.virtualbox.org)
 
 [Download for Linux](https://www.virtualbox.org/wiki/Downloads),
 then run the Installer and follow the instructions.
 
-### Install [Vagrant](https://www.vagrantup.com)
+## Install [Vagrant](https://www.vagrantup.com)
 
 [Download for Linux](https://www.vagrantup.com/downloads.html),
 then run the Installer and follow the instructions.
 
-### Install Git
+## Install Git
 
 Git already comes pre-installed on Linux.
 
