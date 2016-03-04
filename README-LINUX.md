@@ -31,7 +31,7 @@ Verify by opening your Terminal and type:
 
 ```
 $> git --version
-git 2.2.1
+git version 2.7.2
 ```
 
 You're good to move on if that command works.
