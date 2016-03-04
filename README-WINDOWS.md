@@ -60,7 +60,7 @@ click on Windows Start and type "cmd" in the "Search programs and files" search 
 
 Open `cmd.exe`. That's the Terminal equivalent in Windows.
 
-Create and change into into a directory which you'll be using for all of your coding needs, e.g. `~/workshop/` or `C:\workshop`:
+Create and change into into a directory which you'll be using for all of your coding needs, e.g. `C:\workshop`:
 
 ```
 $> mkdir workshop
@@ -69,7 +69,7 @@ $> cd workshop
 
 Download our pre-built _Linux_ (Vagrant) box - Ubuntu 14.04, Ruby 2.3.0 and Rails 4.2.5.1.
 
-[First check you're using 32-bit / 64-bit machine](https://support.microsoft.com/zh-tw/kb/827218).
+[First check if you're using 32-bit / 64-bit machine](https://support.microsoft.com/zh-tw/kb/827218). Otherwise, just follow the instructions for a 32-bit machine.
 
 ```
 # For 32-bit box. Suitable for most systems.

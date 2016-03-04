@@ -49,9 +49,9 @@ $> mkdir workshop
 $> cd workshop
 ```
 
-Download our pre-built _Linux_ (Vagrant) box - Ubuntu 14.04, Ruby 2.3.0 and Rails 4.2.5.
+Download our pre-built _Linux_ (Vagrant) box - Ubuntu 14.04, Ruby 2.3.0 and Rails 4.2.5.1.
 
-[First check you're using 32-bit / 64-bit machine](http://superuser.com/a/87644/119357).
+[First check if you're using 32-bit / 64-bit machine](http://superuser.com/a/87644/119357). Otherwise, just follow the instructions for a 32-bit machine.
 
 ```
 # For 32-bit box. Suitable for most systems.
@@ -119,7 +119,7 @@ Verify that Rails console is working.
 
 ```
 /vagrant/workshop_app $> rails console
-Loading development environment (Rails 4.2.5)
+Loading development environment (Rails 4.2.5.1)
 2.3.0 :001 > Workshop.count
    (0.2ms)  SELECT COUNT(*) FROM "workshops"
  => 3
@@ -134,7 +134,7 @@ Verify that Rails server is working.
 ```
 /vagrant/workshop_app $> rails server --bind 0.0.0.0
 => Booting WEBrick
-=> Rails 4.2.5 application starting in development on http://0.0.0.0:3000
+=> Rails 4.2.5.1 application starting in development on http://0.0.0.0:3000
 => Run `rails server -h` for more startup options
 => Ctrl-C to shutdown server
 ```
