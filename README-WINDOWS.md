@@ -12,6 +12,7 @@ to install __Linux__ on your machine.
 - [Install Git](#install-git)
   * [Adjusting your PATH environment](#adjusting-your-path-environment)
   * [Configuring the line ending conversions](#configuring-the-line-ending-conversions)
+  * [Configuring the terminal emulator to use with Git Bash](#configuring-the-terminal-emulator-to-use-with-git-bash)
 - [Use a Pre-Built Linux (Vagrant) Box](#use-a-pre-built-linux-vagrant-box)
 - [Verify Everything Works!](#verify-everything-works)
 
@@ -31,13 +32,23 @@ Download [Git for Windows](https://git-scm.com/download/win).
 
 Run the installer, and choose the following options where appropriate (use default options for the rest):
 
-### _Adjusting your PATH environment_
+### Adjusting your PATH environment
 
 Choose option `Use Git and optional Unix tools from the Windows Command Prompt`.
 
-### _Configuring the line ending conversions_
+![Adjusting your PATH environment: Use Git and optional Unix tools from the Windows Command Prompt](images/git-001.png)
+
+### Configuring the line ending conversions
 
 Choose option `Checkout as-is, commit Unix-style line endings`.
+
+![Configuring the line ending conversions: Checkout as-is, commit Unix-style line endings](images/git-002.png)
+
+### Configuring the terminal emulator to use with Git Bash
+
+Choose option `Use Windows' default console window`.
+
+![Configuring the terminal emulator to use with Git Bash: Use Windows' default console window](images/git-003.png)
 
 ## Use a Pre-Built _Linux_ (Vagrant) Box
 
